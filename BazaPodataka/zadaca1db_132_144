@@ -1,0 +1,15 @@
+CREATE SCHEMA `zadaca1_132_144`;
+USE `zadaca1_132_144`;
+
+CREATE TABLE korisnik
+(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    username NVARCHAR(50) UNIQUE NOT NULL,
+    address NVARCHAR(100) NOT NULL,
+    password NVARCHAR(100) NOT NULL,
+    role SMALLINT NOT NULL
+);
+
+INSERT INTO korisnik (username, address, password, role) VALUE ('admin', 'zenica', 'admin', 1);
+
+SELECT * FROM korisnik; 
