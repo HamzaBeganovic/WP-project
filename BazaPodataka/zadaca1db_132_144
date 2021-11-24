@@ -12,4 +12,17 @@ CREATE TABLE korisnik
 
 INSERT INTO korisnik (username, address, password, role) VALUE ('admin', 'zenica', 'admin', 1);
 
-SELECT * FROM korisnik; 
+SELECT * FROM korisnik;
+
+ 
+Create table Proizvod
+(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    naziv NVARCHAR(50) NOT NULL,
+    opis text NOT NULL,
+    cijena float,
+	slika BLOB null
+);
+
+Select*
+From Proizvod
