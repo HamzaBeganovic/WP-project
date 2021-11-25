@@ -25,4 +25,29 @@ Create table Proizvod
 );
 
 Select*
-From Proizvod
+From Proizvod;
+
+Create table Narudzba
+(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    datum_narudzbe date  DEFAULT (CURDATE()) not null,
+    total_cijena float not null,
+    status int not null,
+    user_id int,
+    Constraint fk_korisnik_narudzba foreign key(user_id) references korisnik(id)
+);
+Select*
+From Narudzba;
+
+Create table Narudzba_Proizvodi
+(
+	Narudzba_Proizvodi_id INT PRIMARY KEY AUTO_INCREMENT,
+    narudzba_id int,
+    proizvod_id int,
+    Constraint fk_narudzbaID foreign key(narudzba_id) references Narudzba(id),
+	Constraint fk_proizvodID foreign key(proizvod_id) references Proizvod(id)
+);
+
+
+
+
