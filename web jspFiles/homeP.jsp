@@ -18,7 +18,8 @@
       <jsp:include page="nav.jsp"></jsp:include>
       <br> 
       <c:if test="${user.role == 1}">   
-        <a href="dodajProizvod.jsp"><button type="button" class="btn btn-primary btn-lg">DODAJ PROIZVOD</button></a>
-    </c:if>      
+        <a href="dodajProizvod.jsp"><button type="button" class="btn btn-primary btn-lg" style="margin-left:10px">DODAJ PROIZVOD</button></a>
+        <a href="pregledNarudzbi.jsp"><button type="button" class="btn btn-primary btn-lg" style="margin-left: 50px"> PREGLED NARUDŽBI</button></a>
+    </c:if>         
     </body>
 </html>
