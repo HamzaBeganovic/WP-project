@@ -10,16 +10,19 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Tarik
+ * @author Hamza
  */
 @WebServlet(name = "dodajProizvod", urlPatterns = {"/dodajProizvod"})
 public class dodajProizvod extends HttpServlet {
@@ -38,28 +41,43 @@ public class dodajProizvod extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
          try (PrintWriter out = response.getWriter()) {
             
-            String naziv = request.getParameter("naziv");
+           String naziv = request.getParameter("naziv");
             String opis = request.getParameter("opis");
             String cijena = request.getParameter("cijena");
             String slika = request.getParameter("slika");
+            
+            HttpSession session = request.getSession(true);
+            
+            Object listaProivodaObject = session.getAttribute("listaProizvoda");
+            List<String> listaProizvoda;
+            
+            if (listaProivodaObject == null) {
+                listaProizvoda = new ArrayList<String>();
+            } else {
+                listaProizvoda = (List<String>) listaProivodaObject;
+            }
+            
+            listaProizvoda.add(naziv);
+            listaProizvoda.add(opis);
+            listaProizvoda.add(cijena);
+            listaProizvoda.add(slika);
+            session.setAttribute("listaProizvoda", listaProizvoda);
             
             String query = "INSERT INTO Proizvod (naziv, opis,cijena,slika) VALUES ('" + naziv + "', '" + opis + "', '" + cijena + "','" + slika + "')";
             
             Connection con = null;
             Statement stmt = null;
-            String nextAddress = "homeP.jsp";
             
             try {
                 con = DB.getInstance().getConnection();
                 stmt = con.createStatement();
                 stmt.executeUpdate(query);
-                stmt.close();
+                stmt.close();       
             } catch (SQLException e) {
-                String error = e.getMessage();
-                out.println(error);
+                System.out.print(e);
             }
             
-            RequestDispatcher rd = request.getRequestDispatcher(nextAddress);
+            RequestDispatcher rd = request.getRequestDispatcher("homeP.jsp");
             rd.forward(request, response);
         }
     }
@@ -89,3 +107,6 @@ public class dodajProizvod extends HttpServlet {
     }// </editor-fold>
 
 }
+
+
+
