@@ -21,7 +21,6 @@
   justify-content: center;
   height: 100vh;
 }
-
 .form {
   background-color: #15172b;
   border-radius: 20px;
@@ -32,7 +31,6 @@
   margin-left: auto;
    margin-right: auto
 }
-
 .title {
   color: #eee;
   font-family: sans-serif;
@@ -40,7 +38,6 @@
   font-weight: 600;
   margin-top: 30px;
 }
-
 .subtitle {
   color: #eee;
   font-family: sans-serif;
@@ -48,21 +45,17 @@
   font-weight: 600;
   margin-top: 10px;
 }
-
 .input-container {
   height: 50px;
   position: relative;
   width: 100%;
 }
-
 .ic1 {
   margin-top: 40px;
 }
-
 .ic2 {
   margin-top: 30px;
 }
-
 .input {
   background-color: #303245;
   border-radius: 12px;
@@ -75,7 +68,6 @@
   padding: 4px 20px 0;
   width: 100%;
 }
-
 .cut {
   background-color: #15172b;
   border-radius: 10px;
@@ -87,16 +79,13 @@
   transition: transform 200ms;
   width: 76px;
 }
-
 .cut-short {
   width: 50px;
 }
-
 .input:focus ~ .cut,
 .input:not(:placeholder-shown) ~ .cut {
   transform: translateY(8px);
 }
-
 .placeholder {
   color: #65657b;
   font-family: sans-serif;
@@ -108,20 +97,16 @@
   transition: transform 200ms, color 200ms;
   top: 20px;
 }
-
 .input:focus ~ .placeholder,
 .input:not(:placeholder-shown) ~ .placeholder {
   transform: translateY(-30px) translateX(10px) scale(0.75);
 }
-
 .input:not(:placeholder-shown) ~ .placeholder {
   color: #808097;
 }
-
 .input:focus ~ .placeholder {
   color: #dc2f55;
 }
-
 .submit {
   background-color: #08d;
   border-radius: 12px;
@@ -136,12 +121,10 @@
   text-align: center;
   width: 100%;
 }
-
 .imageFile
 {
     color:white;
 }
-
 p 
 {
     color:white;
@@ -150,7 +133,6 @@ p
 {
     color:white
 }
-
         </style>
     </head>
     <body>
@@ -177,12 +159,9 @@ p
         <label for="cijena" class="placeholder">Cijena</>
       </div>
  
-        <div class="input-container ic2">
-        <label for="imageFile"><p>Dodajte sliku:</p></label>
-        <input type="file" name="slika" id="imageFile" accept="image/*" multiple>
+       <button type="text" class="submit">submit</button>  
     </div>
       
-      <button type="text" class="submit">submit</button>
     </form>
       </div>
         
