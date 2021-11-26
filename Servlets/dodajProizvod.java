@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package Servlets;
+import Beans.Proizvod;
 import Utils.DB;
+import static com.sun.media.jfxmediaimpl.MediaUtils.error;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -22,7 +24,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Hamza
+ * @author Tarik
  */
 @WebServlet(name = "dodajProizvod", urlPatterns = {"/dodajProizvod"})
 public class dodajProizvod extends HttpServlet {
@@ -41,29 +43,25 @@ public class dodajProizvod extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
          try (PrintWriter out = response.getWriter()) {
             
-           String naziv = request.getParameter("naziv");
+            
+            Proizvod p = new Proizvod();
+            
+            int Id = Integer.parseInt(request.getParameter("Id"));
+            String naziv = request.getParameter("naziv");
             String opis = request.getParameter("opis");
-            String cijena = request.getParameter("cijena");
-            String slika = request.getParameter("slika");
+            float cijena = Float.parseFloat(request.getParameter("cijena"));
             
             HttpSession session = request.getSession(true);
             
-            Object listaProivodaObject = session.getAttribute("listaProizvoda");
-            List<String> listaProizvoda;
+            p.setId(Id);
+            p.setNaziv(naziv);
+            p.setOpis(opis);
+            p.setCijena(cijena);
             
-            if (listaProivodaObject == null) {
-                listaProizvoda = new ArrayList<String>();
-            } else {
-                listaProizvoda = (List<String>) listaProivodaObject;
-            }
             
-            listaProizvoda.add(naziv);
-            listaProizvoda.add(opis);
-            listaProizvoda.add(cijena);
-            listaProizvoda.add(slika);
-            session.setAttribute("listaProizvoda", listaProizvoda);
+            session.setAttribute("Proizvod", p);
             
-            String query = "INSERT INTO Proizvod (naziv, opis,cijena,slika) VALUES ('" + naziv + "', '" + opis + "', '" + cijena + "','" + slika + "')";
+               String query = "INSERT INTO Proizvod (naziv, opis,cijena) VALUES ('" + naziv + "', '" + opis + "', '" + cijena  + "')";
             
             Connection con = null;
             Statement stmt = null;
@@ -107,6 +105,8 @@ public class dodajProizvod extends HttpServlet {
     }// </editor-fold>
 
 }
+
+
 
 
 
