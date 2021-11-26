@@ -14,7 +14,7 @@
         <title>dodajProizvod</title>
         <style>
             
-            ody {
+            body {
   align-items: center;
   background-color: #000;
   display: flex;
