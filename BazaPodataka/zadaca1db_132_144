@@ -19,7 +19,7 @@ Create table Proizvod
 (
 	id INT PRIMARY KEY AUTO_INCREMENT,
     naziv NVARCHAR(50) NOT NULL,
-    opis text NOT NULL,
+    opis NVARCHAR(200) NOT NULL,
     cijena float
 );
 
