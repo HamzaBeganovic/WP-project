@@ -7,43 +7,46 @@ package Beans;
 
 /**
  *
- * @author Tarik
+ * @author Hamza
  */
 public class Proizvod {
     
-    private String naziv;
-    private String opis;
-    private float cijena;
-
-    public void setNaziv(String naziv) {
-        this.naziv = naziv;
+    int Id;
+    String naziv;
+    String opis;
+    float cijena;
+    
+     public int getId() {
+        return Id;
     }
-
-    public void setOpis(String opis) {
-        this.opis = opis;
-    }
-
-    public void setCijena(float cijena) {
-        this.cijena = cijena;
+    
+    public void setId(int Id) {
+        this.Id = Id;
     }
     
     public String getNaziv() {
         return naziv;
     }
-
+    
+    public void setNaziv(String naziv) {
+        this.naziv = naziv;
+    }
+   
     public String getOpis() {
         return opis;
     }
-
+    
+    public void setOpis(String opis) {
+        this.opis = opis;
+    }
+    
     public float getCijena() {
         return cijena;
     }
-
-    public void setCijena(String cijena) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public void setCijena(float cijena) {
+        this.cijena = cijena;
     }
-   
-    
-    
-    
+
+ 
 }
