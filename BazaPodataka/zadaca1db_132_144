@@ -20,8 +20,7 @@ Create table Proizvod
 	id INT PRIMARY KEY AUTO_INCREMENT,
     naziv NVARCHAR(50) NOT NULL,
     opis text NOT NULL,
-    cijena float,
-	slika BLOB null
+    cijena float
 );
 
 Select*
@@ -39,14 +38,6 @@ Create table Narudzba
 Select*
 From Narudzba;
 
-Create table Narudzba_Proizvodi
-(
-	Narudzba_Proizvodi_id INT PRIMARY KEY AUTO_INCREMENT,
-    narudzba_id int,
-    proizvod_id int,
-    Constraint fk_narudzbaID foreign key(narudzba_id) references Narudzba(id),
-	Constraint fk_proizvodID foreign key(proizvod_id) references Proizvod(id)
-);
 
 
 
